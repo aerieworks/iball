@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>iBall - Virtual Eye-Tracking Target</title>
+        <style type="text/css">
+            @keyframes horizontal {
+                from {
+                    left: 0;
+                }
+
+                to {
+                    left: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <p>Hello, world!</p>
+        <div id="root">
+        </div>
+        <script type="text/javascript">
+            import('./iBall.ts')
+                .then(
+                    (iBall) => {
+                        iBall.initialize('root');
+                    }
+                );
+        </script>
+    </body>
+</html>
