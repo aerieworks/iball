@@ -1,4 +1,5 @@
-import { ConfigPanel } from './target';
+import { ConfigPanel } from './config';
+import './target.css';
 
 export default class Target {
     private readonly parentElement: HTMLElement;
@@ -15,21 +16,15 @@ export default class Target {
 
     render() {
         const config = this.configPanel.getConfig();
-        console.log(config, "${config.fieldSize.widthPx}px");
         this.field = document.createElement('div');
-        this.field.style.setProperty('position', 'relative');
-        this.field.style.setProperty('background-color', 'white');
+        this.field.classList.add('field');
         this.field.style.setProperty('width', config.fieldSize.widthPx.toString() + "px");
         this.field.style.setProperty('height', config.fieldSize.heightPx.toString() + "px");
 
         this.target = document.createElement('div');
-        this.target.style.setProperty('position', 'absolute');
-        this.target.style.setProperty('top', '0');
-        this.target.style.setProperty('left', '0');
-        this.target.style.setProperty('background', 'black');
+        this.target.classList.add('target');
         this.target.style.setProperty('width', config.targetSize.widthPx.toString() + "px");
         this.target.style.setProperty('height', config.targetSize.heightPx.toString() + "px");
-        this.target.style.setProperty('animation', '3s infinite linear alternate horizontal');
 
         this.field.appendChild(this.target);
         this.parentElement.appendChild(this.field);
